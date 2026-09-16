@@ -1,0 +1,275 @@
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-chat {
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.sample-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.sample-chips button {
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.sample-chips button:hover {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message-user .question {
+  align-self: flex-end;
+  background: #2563eb;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 14px 14px 2px 14px;
+  max-width: 80%;
+  margin: 0;
+}
+
+
+.result {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: white;
+}
+
+.result-title {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+}
+
+.kpi-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.kpi-label {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+th {
+  color: #6b7280;
+  font-weight: 600;
+  background: #f9fafb;
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+.text-response {
+  margin: 0;
+  color: #374151;
+}
+
+.empty-state {
+  color: #9ca3af;
+  font-style: italic;
+  margin: 0;
+}
+
+.sql-toggle {
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+
+.sql-toggle summary {
+  cursor: pointer;
+  color: #2563eb;
+}
+
+.sql-block {
+  margin-top: 8px;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+}
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.loading {
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+.composer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.composer input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  padding: 6px 4px;
+}
+
+.composer button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0b0f19;
+    color: #e5e7eb;
+  }
+
+  .app-header p {
+    color: #9ca3af;
+  }
+
+  .empty-chat {
+    border-color: #374151;
+    color: #9ca3af;
+  }
+
+  .sample-chips button {
+    background: #111827;
+    border-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .result {
+    background: #111827;
+    border-color: #1f2937;
+  }
+
+  .result-title,
+  .kpi-value {
+    color: #f9fafb;
+  }
+
+  th {
+    background: #1f2937;
+    color: #9ca3af;
+  }
+
+  th, td {
+    border-color: #1f2937;
+  }
+
+  .text-response {
+    color: #d1d5db;
+  }
+
+  .composer {
+    background: #111827;
+    border-color: #1f2937;
+  }
+
+  .composer input {
+    background: transparent;
+    color: #e5e7eb;
+  }
+}

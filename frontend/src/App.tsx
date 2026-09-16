@@ -1,9 +1,15 @@
+import { ChatWindow } from "./components/ChatWindow";
+import "./App.css";
+
 function App() {
   return (
-    <main>
-      <h1>Conversational Data Analyst</h1>
-      <p>Chat interface coming in the next phase.</p>
-    </main>
+    <div className="app">
+      <header className="app-header">
+        <h1>Conversational Data Analyst</h1>
+        <p>Ask natural-language questions about banking customers, accounts, and transactions.</p>
+      </header>
+      <ChatWindow />
+    </div>
   );
 }
 
