@@ -54,6 +54,7 @@ backend/
     routes/query.ts         POST /api/query orchestration + response shaping
     index.ts                 Express app wiring
   tests/validateSql.test.ts  9 tests, one per validation rule
+  tests/queryRoute.test.ts   8 tests, full HTTP request -> response flow
 frontend/
   src/
     types.ts               QueryResponse/ChatMessage, mirrors the backend
@@ -93,7 +94,9 @@ chips.
 
 ```bash
 cd backend
-npm test         # runs backend/tests/validateSql.test.ts (vitest)
+npm test         # re-seeds the db, then runs all vitest suites (17 tests):
+                  # validateSql.test.ts (the safety-layer rules) and
+                  # queryRoute.test.ts (full HTTP request -> response flow)
 ```
 
 ## Database
@@ -115,7 +118,10 @@ reset the database to a fresh synthetic dataset.
   bar chart, line chart) plus a graceful fallback for unmatched questions
 - SQL safety gate enforcing: single statement only, SELECT-only, a
   forbidden-keyword blocklist, a table allow-list, and an enforced/capped
-  `LIMIT` -- with 9 passing automated tests, one per rule
+  `LIMIT` -- with 9 passing unit tests (one per rule) plus 8 integration
+  tests exercising the real HTTP route end-to-end (17 tests total)
+- Verified production builds for both backend (`tsc`) and frontend
+  (`vite build`), each booted and confirmed serving real requests
 - Read-only DB connection (`PRAGMA query_only = ON`) as defense in depth,
   independent of the validator
 - Input validation via zod (400 on bad input), distinct error handling for
@@ -166,6 +172,10 @@ reset the database to a fresh synthetic dataset.
   fix available yet without breaking Node 20 compatibility) remain in
   `frontend/package-lock.json`; they don't affect the production build
   output, only the local dev server.
+- The production frontend bundle is ~530 kB minified (mostly `recharts`),
+  above Vite's default 500 kB warning threshold. Fine for this demo's
+  single-page scope; a larger app would code-split the chart library
+  behind a dynamic `import()`.
 
 ## Productionisation approach
 
